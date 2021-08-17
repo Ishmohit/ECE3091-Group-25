@@ -1,0 +1,14 @@
+# 32 line encoder
+
+N = 32
+GEAR_RATIO = 114.7
+TIRE_CIRC = 176 # mm
+time = 5 # however long robot has been doing current motion for, should be a class variable
+counts = 60000 # number of counts in current motion
+rotations = counts/N
+rotational_speed = (rotations/time)*60 #to get rpm
+
+output_speed = rotational_speed/GEAR_RATIO
+dist_min = (TIRE_CIRC * output_speed)/1000
+dist_sec = dist_min/60
+print(dist_sec)
